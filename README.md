@@ -1,3 +1,46 @@
+# @karfly section
+### Install
+1. Install docker: https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+2. Download:
+```bash
+git clone https://github.com/karfly/Marzban
+cd Marzban
+```
+2. Setup .env:
+```bash
+cp .env.example .env
+vim .env
+```
+3. Run
+```bash
+docker compose up -d
+```
+
+4. Open ports on instance (TCP):
+- {UVICORN_PORT} (web ui, get from .env)
+- 8443 (vless, tcp)
+- 8081 (vmess, tcp)
+- 1080 (shadowsocks, tcp)
+
+5. Web UI dashboard URL: `https://{YOUR_INSTANCE_IP}:{UVICORN_PORT}/dashboard`
+
+### Additional
+- Enable bittorrent: Go to Dashboard -> Settings -> Scroll down and delete "bittorrent" block setting
+- Change VPN view name: Go to Dashboard -> Sandwich icon -> Host Settings
+- All data is stored in db.sqlite3 in repo dir. So everything persisters across restarts and can be migrated to other instance
+
+### Clients:
+- iOS:
+	- Streisand: https://apps.apple.com/us/app/streisand/id6450534064
+- Android
+	- V2RayNG https://github.com/2dust/v2rayNG/releases/download/1.8.9/v2rayNG_1.8.9.apk
+- MacOS:
+	- Streisand: https://apps.apple.com/ru/app/streisand/id6450534064?l=en-GB
+- Windows:
+	- Nekoray: https://github.com/MatsuriDayo/nekoray/releases/download/3.26/nekoray-3.26-2023-12-09-windows64.zip
+
+---
+
 <p align="center">
   <a href="https://github.com/gozargah/marzban" target="_blank" rel="noopener noreferrer">
     <picture>
