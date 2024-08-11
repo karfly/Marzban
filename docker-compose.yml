@@ -1,8 +1,15 @@
+# @karfly changes:
+# - not pulling from docker hub to get latest version
+# - volume for db.sqlite3 persistence
+
 services:
   marzban:
-    image: gozargah/marzban:latest
+    container_name: marzban
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     env_file: .env
     network_mode: host
     volumes:
-      - /var/lib/marzban:/var/lib/marzban
+      - ./:/code
